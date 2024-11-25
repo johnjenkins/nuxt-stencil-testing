@@ -27,6 +27,7 @@ export const config: Config = {
     enableImportInjection: true,
     experimentalSlotFixes: true,
     experimentalScopedSlotChanges: true,
+    scopedSlotTextContentFix: true,
   },
   // sourceMap: false,
 };
