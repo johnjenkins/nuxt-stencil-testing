@@ -45,7 +45,7 @@
     "generate": "stencil generate"
   },
   "devDependencies": {
-    "@stencil/core": "../../../stencil",
+    "@stencil/core": "latest",
     "@types/node": "^16.18.11"
   },
   "license": "MIT"
