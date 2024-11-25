@@ -1,0 +1,52 @@
+{
+  "name": "stencil-components",
+  "version": "0.0.1",
+  "description": "Stencil Component Starter",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/components/components.esm.js",
+  "exports": {
+    ".": {
+      "import": "./dist/components/components.esm.js",
+      "require": "./dist/components/components.cjs.js"
+    },
+    "./my-component": {
+      "import": "./dist/components/my-component.js",
+      "types": "./dist/components/my-component.d.ts"
+    },
+    "./loader": {
+      "import": "./loader/index.js",
+      "require": "./loader/index.cjs",
+      "types": "./loader/index.d.ts"
+    },
+    "./hydrate": {
+      "import": "./hydrate/index.mjs",
+      "require": "./hydrate/index.js",
+      "types": "./hydrate/index.d.ts"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+  },
+  "files": [
+    "dist/",
+    "loader/",
+    "hydrate/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate"
+  },
+  "devDependencies": {
+    "@stencil/core": "../../../stencil",
+    "@types/node": "^16.18.11"
+  },
+  "license": "MIT"
+}
