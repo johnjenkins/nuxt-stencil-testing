@@ -1,4 +1,5 @@
 import { Config } from '@stencil/core';
+import { vueOutputTarget } from '@stencil/vue-output-target';
 
 export const config: Config = {
   namespace: 'components',
@@ -22,6 +23,19 @@ export const config: Config = {
       type: 'www',
       serviceWorker: null, // disable service workers
     },
+    vueOutputTarget({
+      componentCorePackage: 'stencil-components',
+      proxiesFile: '../vue-wrapper/lib/components.ts',
+      includePolyfills: false,
+
+      componentModels: [
+        {
+          elements: ['my-input'],
+          targetAttr: 'customValue',
+          event: 'my-did-change',
+        },
+      ],
+    }),
   ],
   extras: {
     enableImportInjection: true,

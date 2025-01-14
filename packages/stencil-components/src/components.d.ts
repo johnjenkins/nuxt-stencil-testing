@@ -6,93 +6,50 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MySimpleScoped {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
-    interface MySimpleShadow {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface MyInput {
+        "customValue": string;
     }
 }
+export interface MyInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMyInputElement;
+}
 declare global {
-    interface HTMLMySimpleScopedElement extends Components.MySimpleScoped, HTMLStencilElement {
+    interface HTMLMyInputElementEventMap {
+        "my-did-change": string;
     }
-    var HTMLMySimpleScopedElement: {
-        prototype: HTMLMySimpleScopedElement;
-        new (): HTMLMySimpleScopedElement;
-    };
-    interface HTMLMySimpleShadowElement extends Components.MySimpleShadow, HTMLStencilElement {
+    interface HTMLMyInputElement extends Components.MyInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMyInputElementEventMap>(type: K, listener: (this: HTMLMyInputElement, ev: MyInputCustomEvent<HTMLMyInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMyInputElementEventMap>(type: K, listener: (this: HTMLMyInputElement, ev: MyInputCustomEvent<HTMLMyInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLMySimpleShadowElement: {
-        prototype: HTMLMySimpleShadowElement;
-        new (): HTMLMySimpleShadowElement;
+    var HTMLMyInputElement: {
+        prototype: HTMLMyInputElement;
+        new (): HTMLMyInputElement;
     };
     interface HTMLElementTagNameMap {
-        "my-simple-scoped": HTMLMySimpleScopedElement;
-        "my-simple-shadow": HTMLMySimpleShadowElement;
+        "my-input": HTMLMyInputElement;
     }
 }
 declare namespace LocalJSX {
-    interface MySimpleScoped {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
-    interface MySimpleShadow {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface MyInput {
+        "customValue"?: string;
+        "onMy-did-change"?: (event: MyInputCustomEvent<string>) => void;
     }
     interface IntrinsicElements {
-        "my-simple-scoped": MySimpleScoped;
-        "my-simple-shadow": MySimpleShadow;
+        "my-input": MyInput;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-simple-scoped": LocalJSX.MySimpleScoped & JSXBase.HTMLAttributes<HTMLMySimpleScopedElement>;
-            "my-simple-shadow": LocalJSX.MySimpleShadow & JSXBase.HTMLAttributes<HTMLMySimpleShadowElement>;
+            "my-input": LocalJSX.MyInput & JSXBase.HTMLAttributes<HTMLMyInputElement>;
         }
     }
 }
