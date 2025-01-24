@@ -28,7 +28,7 @@ export class MyComponent {
 
   render() {
     return <div>
-      Hello, World! I'm {this.getText()}. Here's some slotted content:
+      Hello, World! I'm {this.getText()}. Here's some slotted content?:
       <slot />
     </div>;
   }

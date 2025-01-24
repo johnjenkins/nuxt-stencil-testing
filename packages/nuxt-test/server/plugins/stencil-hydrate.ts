@@ -5,6 +5,7 @@ export default defineNitroPlugin(nitroApp => {
     const res = await renderToString(response.body, {
       // prettyHtml: true,
       serializeShadowRoot: true,
+      removeHtmlComments: false,
     })
 
     // console.log('incoming html' + response.body)

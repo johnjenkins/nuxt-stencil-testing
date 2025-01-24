@@ -26,8 +26,8 @@ importers:
   packages/stencil-components:
     devDependencies:
       '@stencil/core':
-        specifier: latest
-        version: 4.22.3
+        specifier: ~4.25.0
+        version: 4.25.0
       '@types/node':
         specifier: ^16.18.11
         version: 16.18.119
@@ -840,8 +840,8 @@ packages:
     resolution: {integrity: sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==}
     engines: {node: '>=18'}
 
-  '@stencil/core@4.22.3':
-    resolution: {integrity: sha512-dYaletX938WgEA2oMROLdh8wpUn1MgBx2zg5kYqwuUR8aua4Gy9EqGQ3zBu1AvL5MzLlZC+lMlxe/g5Dg1ldpw==}
+  '@stencil/core@4.25.0':
+    resolution: {integrity: sha512-mLyaGCCGaHh6M4n1Hs3CXytD8MLQEt/eBBEoeJvAKE82S3CaqT5n5STXNHnv+qRz3btaSzqEfn2DBTurHYgKeQ==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
 
@@ -3928,7 +3928,7 @@ snapshots:
 
   '@sindresorhus/merge-streams@2.3.0': {}
 
-  '@stencil/core@4.22.3': {}
+  '@stencil/core@4.25.0': {}
 
   '@trysound/sax@0.2.0': {}
 
